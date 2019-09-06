@@ -100,3 +100,6 @@ env SLACK_TOKEN="xoxp-99999999-99999999-hogehoge-fugafuga" CHANNEL_ID="G4AK35007
 ```
 
 のように表示され、エラーが生じた場合にもその結果を表示してくれます。
+
+### LISENCE
+ISC LICENSE
