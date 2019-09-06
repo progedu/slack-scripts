@@ -1,6 +1,8 @@
 # slack-scripts
 
-### このスクリプトについて
+Slack向けのお便利スクリプト集
+
+### 機能について
 
 現在このスクリプトでは、
 
@@ -32,22 +34,19 @@ npm install
 次にVSCode 等のエディタで、必要な処理のコメントアウトを取り除き、不要な処理をコメントアウトします。(コマンド+/)
 
 ```
-      // パブリックチャンネル招待
-      // const inviteResult = await web.channels.invite({channel : channelId, user : user.id }) as InviteResult 
-      // const channel = inviteResult.channel;
-      // console.log(`[INFO] email: ${email} user.name: ${user.name} channel.name: ${channel.name} の招待を行いました。`);
-
-      // パブリックチャンネル削除
-      //await web.channels.kick({channel : channelId, user : user.id }) // 削除
-      //console.log(`[INFO] email: ${email} user.name: ${user.name} channelId: ${channelId} の削除を行いました。`);
-
-      // プライベートチャンネル招待
-      await web.groups.invite({channel : channelId, user : user.id });
-      console.log(`[INFO] email: ${email} user.name: ${user.name} channelId: ${channelId} の招待を行いました。`);
-
-      // プライベートチャンネル削除
-      // await web.groups.kick({channel : channelId, user : user.id }) // 削除
-      // console.log(`[INFO] email: ${email} user.name: ${user.name} channelId: ${channelId} の削除を行いました。`);
+// パブリックチャンネル招待
+// const inviteResult = await web.channels.invite({channel : channelId, user : user.id }) as InviteResult 
+// const channel = inviteResult.channel;
+// console.log(`[INFO] email: ${email} user.name: ${user.name} channel.name: ${channel.name} の招待を行いました。`
+// パブリックチャンネル削除
+//await web.channels.kick({channel : channelId, user : user.id }) // 削除
+//console.log(`[INFO] email: ${email} user.name: ${user.name} channelId: ${channelId} の削除を行いました。`
+// プライベートチャンネル招待
+await web.groups.invite({channel : channelId, user : user.id });
+console.log(`[INFO] email: ${email} user.name: ${user.name} channelId: ${channelId} の招待を行いました。`
+// プライベートチャンネル削除
+// await web.groups.kick({channel : channelId, user : user.id }) // 削除
+// console.log(`[INFO] email: ${email} user.name: ${user.name} channelId: ${channelId} の削除を行いました。`);
 ```
 
 ##### 3. OAuth Access Token の取得 と必要な招待
