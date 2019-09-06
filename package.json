@@ -8,7 +8,10 @@
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "*.{js,json,css,md}": ["prettier --write --single-quote=true", "git add"]
+    "*.{js,ts,json,css,md}": [
+      "prettier --write --single-quote=true",
+      "git add"
+    ]
   },
   "author": "sifue",
   "license": "ISC",

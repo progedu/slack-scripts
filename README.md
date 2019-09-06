@@ -4,7 +4,7 @@ Slack向けのお便利スクリプト集
 
 ### 機能について
 
-現在このスクリプトでは、
+現在、このスクリプトでは、
 
 - emailアドレスのリストから
   - パブリックチャンネルに招待する
@@ -19,15 +19,17 @@ Slack向けのお便利スクリプト集
 ##### 1. インストール
 
 まず、このスクリプトを GitHub よりダウンロードします。
-その後、[Node.js](https://nodejs.org/ja/) をインストール (v10.16.3 LTS以上)。
+その後、[Node.js](https://nodejs.org/ja/) をインストール (v10.16.3 LTS以上)します。
+Windows の方は、Windows 用、Mac の方は Mac 用のものをインストールしてください。
 
-コンソールにて
+コンソール(Windowsの場合にはPowerShellをメニューから立ち上げて)、ダウンロードして解凍したフォルダ内にて
 
 ```
+cd slack-scripts
 npm install
 ```
 
-以上を実行。必要なライブラリをインストールします。
+以上を実行。必要なライブラリをインストールします。エラーが出ないことを確認して下さい。
 
 ##### 2. スクリプトの編集
 
@@ -38,16 +40,21 @@ npm install
 // const inviteResult = await web.channels.invite({channel : channelId, user : user.id }) as InviteResult 
 // const channel = inviteResult.channel;
 // console.log(`[INFO] email: ${email} user.name: ${user.name} channel.name: ${channel.name} の招待を行いました。`
+
 // パブリックチャンネル削除
 //await web.channels.kick({channel : channelId, user : user.id }) // 削除
 //console.log(`[INFO] email: ${email} user.name: ${user.name} channelId: ${channelId} の削除を行いました。`
+
 // プライベートチャンネル招待
 await web.groups.invite({channel : channelId, user : user.id });
 console.log(`[INFO] email: ${email} user.name: ${user.name} channelId: ${channelId} の招待を行いました。`
+
 // プライベートチャンネル削除
 // await web.groups.kick({channel : channelId, user : user.id }) // 削除
 // console.log(`[INFO] email: ${email} user.name: ${user.name} channelId: ${channelId} の削除を行いました。`);
 ```
+
+ここでは「プライベートチャンネル招待」するコードだけを実行するように残してあります。
 
 ##### 3. OAuth Access Token の取得 と必要な招待
 
@@ -65,19 +72,20 @@ xoxp-99999999-99999999-hogehoge-fugafuga
 ```
 
 以上のような形式となっています。テキストとして大事に控えておきましょう。
+あらかじめそのような Apps が作成されている場合には、その App の管理者にトークンをもらいましょう。
 
 
-**もしプライベートチャンネルに案内する場合には、トークンの製作者 sifue 等を、一旦プライベートチャンネルに招待します。**
+**なお、もしプライベートチャンネルに案内する場合には、トークンの製作者 sifue 等を、一旦プライベートチャンネルに招待する必要があります。**
 
 ##### 4. チャンネル ID の取得
 
-次にチャンネルの ID を取得しましょう。チャンネルのリンク
+次にチャンネルの ID を取得しましょう。チャンネルのリンクをコピーして得られる、
 
 ```
 https://sifue.slack.com/messages/G4AK35007
 ```
 
-などの `G4AK35007` がチャンネルの ID となります。
+などのURLのパスの最後、ここでは `G4AK35007` がチャンネルの ID となります。
 
 ##### 5. スクリプトの実行
 
@@ -86,6 +94,13 @@ https://sifue.slack.com/messages/G4AK35007
 ```
 env SLACK_TOKEN="xoxp-99999999-99999999-hogehoge-fugafuga" CHANNEL_ID="G4AK35007" npm start
 ```
+
+WindowsのPowerShellの場合には、
+
+```
+& { $env:SLACK_TOKEN="xoxp-99999999-99999999-hogehoge-fugafuga"; $env:CHANNEL_ID="G4AK35007"; npm start }
+```
+
 
 以上を実行すると
 
@@ -98,7 +113,7 @@ env SLACK_TOKEN="xoxp-99999999-99999999-hogehoge-fugafuga" CHANNEL_ID="G4AK35007
 [INFO] 全 1 件の処理を終えました。
 ```
 
-のように表示され、エラーが生じた場合にもその結果を表示してくれます。
+のように表示され実行されます。エラーが生じた場合にもその結果を表示してくれます。エラーが生じても成功するものは実行されます。
 
 ### LISENCE
 ISC LICENSE
