@@ -81,7 +81,7 @@ https://sifue.slack.com/messages/G4AK35007
 
 ##### 5. スクリプトの実行
 
-コンソールにて
+コンソールにて、OAuth Access Token とチャンネル ID を置き換えて、
 
 ```
 env SLACK_TOKEN="xoxp-99999999-99999999-hogehoge-fugafuga" CHANNEL_ID="G4AK35007" npm start
