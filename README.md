@@ -73,6 +73,8 @@ https://sifue.slack.com/messages/G4AK35007
 - パブリックチャンネルから削除: `public-kick`
 - プライベートチャンネル招待: `private-invite`
 - プライベートチャンネルから削除: `private-kick`
+- パブリックから変更したプライベートチャンネル招待: `prvfrompub-invite`
+- パブリックから変更したプライベートチャンネルから削除: `prvfrompub-kick`
 
 以上を参考に設定できます。
 

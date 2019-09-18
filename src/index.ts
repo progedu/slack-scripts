@@ -58,6 +58,18 @@ import { WebClient, WebAPICallResult } from '@slack/web-api';
         console.log(
           `[INFO] email: ${email} user.name: ${user.name} channelId: ${channelId} の削除を行いました。`
         );
+      } else if (execMode === 'prvfrompub-invite') {
+        // パブリックチャンネルから変更したプライベートチャンネル招待
+        await web.conversations.invite({ channel: channelId, users: user.id });
+        console.log(
+          `[INFO] email: ${email} user.name: ${user.name} channelId: ${channelId} の招待を行いました。`
+        );
+      } else if (execMode === 'prvfrompub-kick') {
+        // パブリックチャンネルから変更したプライベートチャンネル削除
+        await web.conversations.kick({ channel: channelId, user: user.id }); // 削除
+        console.log(
+          `[INFO] email: ${email} user.name: ${user.name} channelId: ${channelId} の削除を行いました。`
+        );
       } else {
         console.log(
           `[ERROR] execMode: ${execMode} は対応していない実行モードです。`
