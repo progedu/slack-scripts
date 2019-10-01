@@ -11,6 +11,7 @@ Slack 向けのお便利スクリプト集
   - パブリックチャンネルから削除する
   - プライベートチャンネルに招待する
   - プライベートチャンネルから削除する
+  - パブリックから変更したプライベートチャンネルに招待する (削除不能)
 
 以上の機能を提供しています。今後、要望に応じて Slack 向けスクリプトを増やしていく予定です。
 
@@ -39,6 +40,7 @@ npm install
 
 - channels:write
 - groups:write
+- conversations:write
 - users:read
 - users:read.email
 
@@ -74,7 +76,6 @@ https://sifue.slack.com/messages/G4AK35007
 - プライベートチャンネル招待: `private-invite`
 - プライベートチャンネルから削除: `private-kick`
 - パブリックから変更したプライベートチャンネル招待: `prvfrompub-invite`
-- パブリックから変更したプライベートチャンネルから削除: `prvfrompub-kick`
 
 以上を参考に設定できます。
 
