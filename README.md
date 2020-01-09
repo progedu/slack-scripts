@@ -7,13 +7,10 @@ Slack 向けのお便利スクリプト集
 現在、このスクリプトでは、
 
 - email アドレスのリストから
-  - パブリックチャンネルに招待する
-  - パブリックチャンネルから削除する
-  - プライベートチャンネルに招待する
-  - プライベートチャンネルから削除する
-  - パブリックから変更したプライベートチャンネルに招待する (削除不能)
+- チャンネルに招待する
+- チャンネルから削除する
 
-以上の機能を提供しています。今後、要望に応じて Slack 向けスクリプトを増やしていく予定です。
+以上の機能を提供しています。今後、要望に応じて Slack 向けスクリプトを増やしていく予定です。なお、プライベートちゃんねるの処理は teacher_sifue をチャンネルに招待して貰う必要があります。
 
 # 使い方
 
@@ -40,6 +37,8 @@ npm install
 
 - channels:write
 - groups:write
+- im:write
+- mpim:write
 - conversations:write
 - users:read
 - users:read.email
@@ -71,22 +70,19 @@ https://sifue.slack.com/messages/G4AK35007
 
 実行モードは
 
-- パブリックチャンネル招待: `public-invite`
-- パブリックチャンネルから削除: `public-kick`
-- プライベートチャンネル招待: `private-invite`
-- プライベートチャンネルから削除: `private-kick`
-- パブリックから変更したプライベートチャンネル招待: `prvfrompub-invite`
+- チャンネル招待: `conv-invite`
+- チャンネルから削除: `conv-kick`
 
 以上を参考に設定できます。
 
 ```
-env SLACK_TOKEN="xoxp-99999999-99999999-hogehoge-fugafuga" EXEC_MODE="public-invite" CHANNEL_ID="G4AK35007" npm start
+env SLACK_TOKEN="xoxp-99999999-99999999-hogehoge-fugafuga" EXEC_MODE="conv-invite" CHANNEL_ID="G4AK35007" npm start
 ```
 
 Windows の PowerShell の場合には、
 
 ```
-& { $env:SLACK_TOKEN="xoxp-99999999-99999999-hogehoge-fugafuga";  $env:EXEC_MODE="public-invite"; $env:CHANNEL_ID="G4AK35007"; npm start }
+& { $env:SLACK_TOKEN="xoxp-99999999-99999999-hogehoge-fugafuga";  $env:EXEC_MODE="conv-invite"; $env:CHANNEL_ID="G4AK35007"; npm start }
 ```
 
 以上を実行すると
