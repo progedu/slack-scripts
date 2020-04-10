@@ -39,7 +39,6 @@ npm install
 - groups:write
 - im:write
 - mpim:write
-- conversations:write
 - users:read
 - users:read.email
 
