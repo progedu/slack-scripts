@@ -43,6 +43,7 @@ npm install
 - users:read.email
 
 の権限を持つ App を作成し、OAuth Access Token を取得します。
+Permissionのところから上記のスコープを(BotトークンではなくUserトークン)作成し、ワークスペースにインストールしてトークンを発行します。
 
 ```
 xoxp-99999999-99999999-hogehoge-fugafuga
