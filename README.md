@@ -82,7 +82,8 @@ env SLACK_TOKEN="xoxp-99999999-99999999-hogehoge-fugafuga" EXEC_MODE="conv-invit
 Windows の PowerShell の場合には、
 
 ```
-& { $env:SLACK_TOKEN="xoxp-99999999-99999999-hogehoge-fugafuga";  $env:EXEC_MODE="conv-invite"; $env:CHANNEL_ID="G4AK35007"; npm start }
+Set-ExecutionPolicy Unrestricted -Scope CurrentUser
+& { $env:SLACK_TOKEN="xoxp-99999999-99999999-hogehoge-fugafuga";  $env:EXEC_MODE="conv-invite"; $env:CHANNEL_ID="G4AK35007"; node_modules/.bin/tsc;  node dist/index.js; }
 ```
 
 以上を実行すると
