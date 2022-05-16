@@ -22,6 +22,19 @@ import { WebClient, WebAPICallResult } from '@slack/web-api';
     .readFileSync(emailsFile)
     .toString('UTF-8')
     .split('\n');
+
+  /**
+   * wait関数
+   * @param ms 待つミリ秒
+   * @returns
+   */
+  function delay(ms: number) {
+    return new Promise(resolve => {
+      return setTimeout(resolve, ms);
+    });
+  }
+  const sendWaitTime = process.env.SEND_WAIT_TIME || '500';
+
   console.log(`[INFO] 全 ${emails.length} 件の処理を開始します。`);
   let counter = 0;
   for (const email of emails) {
@@ -79,6 +92,8 @@ import { WebClient, WebAPICallResult } from '@slack/web-api';
     } catch (err) {
       console.log(`[ERROR] APIの実行エラー email: ${email} err: ${err}`);
     }
+
+    delay(parseInt(sendWaitTime)); // ループの終わりに待ち時間を入れる
   }
   console.log(`[INFO] 全 ${counter} 件の処理を終えました。`);
 })();
